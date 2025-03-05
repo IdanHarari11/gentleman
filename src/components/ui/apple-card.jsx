@@ -131,7 +131,7 @@ export const AppleCardsSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 bg-[#e2dfce]">
+    <section className="py-16 md:py-0 px-4 md:px-8 bg-[#e2dfce]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-[#242422]">
           המודל החדש של הג'נטלמן המודרני לשנת 2025

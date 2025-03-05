@@ -270,6 +270,33 @@ p {
   .h-\[300vh\] {
     height: 250vh;
   }
+  
+  /* Make header more compact */
+  .max-h-\[180px\] {
+    max-height: 180px;
+  }
+  
+  /* Reduce spacing between rows */
+  .overflow-x-auto.pb-4 {
+    padding-bottom: 0.75rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Ensure the mobile view starts higher */
+  .md\:hidden.mt-0 {
+    margin-top: -1rem;
+  }
+  
+  /* Reduce the height of the product cards on very small screens */
+  @media (max-width: 360px) {
+    .w-64.h-64 {
+      width: 12rem !important;
+      height: 12rem !important;
+    }
+  }
 }
 
 /* Product card styling */
@@ -295,14 +322,15 @@ p {
   }
 }
 
-/* Hide scrollbar but keep functionality */
+/* Hide scrollbar but allow scrolling */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  scroll-behavior: smooth;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
+  display: none;  /* Chrome, Safari and Opera */
 }
 
 /* Mobile parallax adjustments */
@@ -599,4 +627,94 @@ p {
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
   }
+}
+
+/* Adjust the gentleman image size */
+.max-h-\[220px\] {
+  max-height: 220px !important;
+}
+
+@media (min-width: 768px) {
+  /* Make the image even larger on desktop */
+  .md\:max-h-none {
+    max-height: none !important;
+  }
+  
+  /* Increase the image container size */
+  .md\:w-1\/3 {
+    width: 33.333333% !important;
+  }
+}
+
+/* For very small mobile screens */
+@media (max-width: 360px) {
+  .max-h-\[220px\] {
+    max-height: 180px !important; /* Slightly smaller on very small screens */
+  }
+}
+
+/* Enhanced typography for the Compare Section */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #242422 0%, #343432 100%);
+}
+
+/* Cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* Enhanced focus styles for accessibility */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(36, 36, 34, 0.3);
+}
+
+/* Improved transitions */
+.transition-all-smooth {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smoother animations for all motion elements */
+.motion-reduce {
+  @media (prefers-reduced-motion: reduce) {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Improved transitions for parallax elements */
+.transition-transform-smooth {
+  transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.transition-all-smooth {
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Smoother scrollbar for mobile rows */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

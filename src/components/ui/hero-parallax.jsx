@@ -17,23 +17,60 @@ export const HeroParallax = ({
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  // Enhanced spring configuration for smoother motion
+  const springConfig = { 
+    stiffness: 100, // Reduced from 300 for smoother motion
+    damping: 40,    // Increased from 30 for less oscillation
+    bounce: 0,      // Removed bounce for smoother movement
+    mass: 1.5       // Added mass for more inertia and smoothness
+  };
 
-  const translateX = useSpring(useTransform(scrollYProgress, [0, 1], [0, -1000]), springConfig);
-  const translateXReverse = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1000]), springConfig);
-  const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.2], [15, 0]), springConfig);
-  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), springConfig);
-  const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [-20, 0]), springConfig);
-  const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 300]), springConfig);
+  // Smoother transforms with useSpring
+  const translateX = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -1000]), 
+    springConfig
+  );
   
-  // Mobile parallax values - using the same values as desktop for consistency
-  const mobileTranslateX = useSpring(useTransform(scrollYProgress, [0, 1], [0, -150]), springConfig);
-  const mobileTranslateXReverse = useSpring(useTransform(scrollYProgress, [0, 1], [0, 150]), springConfig);
+  const translateXReverse = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 1000]), 
+    springConfig
+  );
+  
+  const rotateX = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [15, 0]), 
+    springConfig
+  );
+  
+  const opacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), 
+    springConfig
+  );
+  
+  const rotateZ = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [-20, 0]), 
+    springConfig
+  );
+  
+  const translateY = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [-700, 150]), 
+    springConfig
+  );
+  
+  // Mobile parallax values with smoother configuration
+  const mobileTranslateX = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -150]), 
+    springConfig
+  );
+  
+  const mobileTranslateXReverse = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 150]), 
+    springConfig
+  );
   
   return (
     (<div
       ref={ref}
-      className="lg:h-[330vh] md:h-[330vh] sm:h-[260vh] py-10 md:py-20 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#e2dfce]">
+      className="lg:h-[330vh] md:h-[330vh] sm:h-[260vh] py-0 md:py-0 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#e2dfce]">
       <Header />
       <motion.div
         style={{
@@ -45,22 +82,23 @@ export const HeroParallax = ({
         className="mt-0 -mb-16 md:mb-0">
         
         {/* Mobile view - horizontal scrolling rows like desktop */}
-        <div className="md:hidden -mt-16">
+        <div className="md:hidden mt-0 pb-[10rem]">
           {/* First row - now with motion */}
           <div className="overflow-x-auto pb-4 hide-scrollbar">
             <motion.div 
               className="flex flex-row-reverse space-x-reverse space-x-4 mb-4 min-w-max px-4"
-              style={{ x: mobileTranslateX }}
+              style={{ x: mobileTranslateXReverse }}
+              transition={{ ease: "easeInOut", duration: 0.8 }} // Added smooth transition
             >
-              {firstRow.map((product, index) => (
-                <div key={`mobile-product-1-${index}`} className="flex-shrink-0">
+              {firstRow.map((product) => (
+                <div key={product?.title || `product-${Math.random()}`} className="flex-shrink-0">
                   <ProductCard 
                     product={product} 
-                    translate={0} 
+                    translate={mobileTranslateXReverse} 
                     enableHover={enableHover}
                     isMobile={true}
-                    width="w-64" 
-                    height="h-64" 
+                    width="w-48" 
+                    height="h-48" 
                   />
                 </div>
               ))}
@@ -70,18 +108,19 @@ export const HeroParallax = ({
           {/* Second row */}
           <div className="overflow-x-auto pb-4 hide-scrollbar">
             <motion.div 
-              className="flex flex-row space-x-4 mb-4 min-w-max px-4"
-              style={{ x: mobileTranslateXReverse }}
+              className="flex flex-row-reverse space-x-reverse space-x-4 min-w-max px-4"
+              style={{ x: mobileTranslateX }}
+              transition={{ ease: "easeInOut", duration: 0.8 }} // Added smooth transition
             >
-              {secondRow.map((product, index) => (
-                <div key={`mobile-product-2-${index}`} className="flex-shrink-0">
+              {secondRow.map((product) => (
+                <div key={product?.title || `product-${Math.random()}`} className="flex-shrink-0">
                   <ProductCard 
                     product={product} 
-                    translate={0}
+                    translate={mobileTranslateX} 
                     enableHover={enableHover}
                     isMobile={true}
-                    width="w-64" 
-                    height="h-64" 
+                    width="w-48" 
+                    height="h-48" 
                   />
                 </div>
               ))}
@@ -92,17 +131,18 @@ export const HeroParallax = ({
           <div className="overflow-x-auto pb-4 hide-scrollbar">
             <motion.div 
               className="flex flex-row-reverse space-x-reverse space-x-4 min-w-max px-4"
-              style={{ x: mobileTranslateX }}
+              style={{ x: mobileTranslateXReverse }}
+              transition={{ ease: "easeInOut", duration: 0.8 }} // Added smooth transition
             >
-              {thirdRow.map((product, index) => (
-                <div key={`mobile-product-3-${index}`} className="flex-shrink-0">
+              {thirdRow.map((product) => (
+                <div key={product?.title || `product-${Math.random()}`} className="flex-shrink-0">
                   <ProductCard 
                     product={product} 
-                    translate={0}
+                    translate={mobileTranslateXReverse} 
                     enableHover={enableHover}
                     isMobile={true}
-                    width="w-64" 
-                    height="h-64" 
+                    width="w-48" 
+                    height="h-48" 
                   />
                 </div>
               ))}
@@ -110,9 +150,9 @@ export const HeroParallax = ({
           </div>
         </div>
         
-        {/* Desktop view - horizontal scrolling rows */}
+        {/* Desktop view */}
         <div className="hidden md:block">
-          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
             {firstRow.map((product) => (
               <ProductCard 
                 product={product} 
@@ -122,7 +162,7 @@ export const HeroParallax = ({
               />
             ))}
           </motion.div>
-          <motion.div className="flex flex-row mb-20 space-x-20">
+          <motion.div className="flex flex-row space-x-20 mt-20">
             {secondRow.map((product) => (
               <ProductCard 
                 product={product} 
@@ -132,7 +172,7 @@ export const HeroParallax = ({
               />
             ))}
           </motion.div>
-          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 pt-[5rem]">
             {thirdRow.map((product) => (
               <ProductCard 
                 product={product} 
@@ -160,7 +200,7 @@ export const Header = () => {
             alt="Gentlemen Club" 
             width={400} 
             height={500}
-            className="object-contain mx-auto md:mx-0 rounded-xl max-h-[200px] md:max-h-none"
+            className="object-contain mx-auto md:mx-0 rounded-xl md:max-h-none max-h-[365px]"
             priority
           />
         </div>
@@ -208,35 +248,25 @@ export const ProductCard = ({
       }}
       whileHover={enableHover && !isMobile ? {
         y: -20,
+        transition: { duration: 0.3, ease: "easeOut" } // Smoother hover animation
       } : {}}
       key={product?.title || `product-${Math.random()}`}
       className={`group/product relative flex-shrink-0 bg-[#f2f2f2] rounded-xl overflow-hidden shadow-md ${
         isMobile ? `${height} ${width}` : `${height} ${width}`
       }`}>
-      {product.link ? (
-        <Link href={product.link} className="block group-hover/product:shadow-2xl">
-          <Image
-            src={product.thumbnail}
-            height="600"
-            width="600"
-            className="object-cover object-center absolute h-full w-full inset-0 rounded-xl"
-            alt={product?.title || 'Product image'} />
-        </Link>
-      ) : (
-        <div className="block group-hover/product:shadow-2xl">
-          <Image
-            src={product.thumbnail}
-            height="600"
-            width="600"
-            className="object-cover object-center absolute h-full w-full inset-0 rounded-xl"
-            alt={product?.title || 'Product image'} />
-        </div>
-      )}
+      <div className="block group-hover/product:shadow-2xl transition-all duration-300"> {/* Added transition */}
+        <Image
+          src={product.thumbnail}
+          height="600"
+          width="600"
+          className="object-cover object-center absolute h-full w-full inset-0 rounded-xl transition-transform duration-500" // Added transition
+          alt={product?.title || 'Product image'} />
+      </div>
       <div
-        className={`absolute inset-0 h-full w-full opacity-0 ${enableHover ? 'group-hover/product:opacity-80' : ''} bg-[#242422] pointer-events-none rounded-xl`}></div>
+        className={`absolute inset-0 h-full w-full opacity-0 ${enableHover ? 'group-hover/product:opacity-80' : ''} bg-[#242422] pointer-events-none rounded-xl transition-opacity duration-500`}></div> {/* Smoother opacity transition */}
       {product?.title && (
         <h2
-          className={`absolute bottom-4 right-4 ${isMobile ? 'opacity-100 text-xl' : `opacity-0 ${enableHover ? 'group-hover/product:opacity-100' : ''}`} text-[#ffffff] font-medium`}>
+          className={`absolute bottom-4 right-4 ${isMobile ? 'opacity-100 text-xl' : `opacity-0 ${enableHover ? 'group-hover/product:opacity-100' : ''}`} text-[#ffffff] font-medium transition-all duration-500`}> {/* Smoother text transition */}
           {product.title}
         </h2>
       )}

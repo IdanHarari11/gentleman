@@ -151,7 +151,7 @@ export default function Home() {
       
       {/* MultiStepLoader with Image - Desktop: Side by Side, Mobile: Stacked */}
       <div className="bg-[#e2dfce] px-4 md:px-8 pb-16">
-        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row-reverse items-center">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row-reverse items-center sx:gap-[23rem]">
         {/* Image - Left side on desktop, bottom on mobile */}
           <div className="w-full md:w-1/2 md:mt-0 flex justify-center md:justify-start">
             <div className="relative w-full max-w-md h-[400px] md:h-[500px]">

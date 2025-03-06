@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -14,8 +14,8 @@ export const FloatingNav = ({
   className,
 }) => {
   const { scrollYProgress } = useScroll();
-
   const [visible, setVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Always keep visible
@@ -37,9 +37,46 @@ export const FloatingNav = ({
           behavior: 'smooth',
           block: 'start'
         });
+        
+        // Update active section
+        setActiveSection(targetId);
       }
     }
   };
+
+  // Detect which section is currently in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { 
+        rootMargin: "-20% 0px -70% 0px" // Adjust these values to control when a section is considered "active"
+      }
+    );
+
+    // Observe all sections that correspond to nav items
+    navItems.forEach((item) => {
+      const targetId = item.link.startsWith('#') ? item.link.substring(1) : null;
+      if (targetId) {
+        const element = document.getElementById(targetId);
+        if (element) observer.observe(element);
+      }
+    });
+
+    // Add signup section to observed elements
+    const signupSection = document.getElementById('signup');
+    if (signupSection) observer.observe(signupSection);
+
+    return () => {
+      // Cleanup observer on component unmount
+      observer.disconnect();
+    };
+  }, [navItems]);
 
   return (
     <AnimatePresence mode="wait">
@@ -64,25 +101,39 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem, idx) => (
-          <Link
-            key={`link-${idx}`}
-            href={navItem.link}
-            onClick={(e) => handleNavClick(e, navItem.link)}
-            className={cn(
-              "relative items-center flex text-[#3a3935] hover:text-black px-1 sm:px-3 py-1"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="block text-xs sm:text-sm md:text-base font-medium">{navItem.name}</span>
-          </Link>
-        ))}
+        {navItems.map((navItem, idx) => {
+          const isActive = navItem.link.startsWith('#') && 
+                          navItem.link.substring(1) === activeSection;
+          
+          return (
+            <Link
+              key={`link-${idx}`}
+              href={navItem.link}
+              onClick={(e) => handleNavClick(e, navItem.link)}
+              className={cn(
+                "relative items-center flex text-[#3a3935] hover:text-black px-1 sm:px-3 py-1 transition-colors",
+                isActive && "text-black font-semibold"
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="block text-xs sm:text-sm md:text-base font-medium">{navItem.name}</span>
+              
+              {/* Active indicator line */}
+              {isActive && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3a3935] rounded-full" />
+              )}
+            </Link>
+          );
+        })}
         <button 
           style={{
             backdropFilter: "blur(4px)",
             WebkitBackdropFilter: "blur(4px)"
           }}
-          className="border text-xs sm:text-sm md:text-base font-medium relative border-[#a19f8c]/60 text-[#3a3935] bg-[#d6d3c3]/40 px-3 sm:px-5 py-1 sm:py-2 rounded-full hover:bg-[#c9c6b7]/60 transition-colors"
+          className={cn(
+            "relative border text-xs sm:text-sm md:text-base font-medium border-[#a19f8c]/60 text-[#3a3935] bg-[#d6d3c3]/40 px-3 sm:px-5 py-1 sm:py-2 rounded-full hover:bg-[#c9c6b7]/60 transition-colors",
+            activeSection === "signup" && "border-[#3a3935] border-2 bg-[#d6d3c3]/60 text-black font-semibold"
+          )}
           onClick={(e) => handleNavClick(e, "#signup")}
         >
           <span>הצטרפות</span>

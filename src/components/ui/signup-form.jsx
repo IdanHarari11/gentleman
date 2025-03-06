@@ -31,7 +31,7 @@ export function SignupForm() {
       id: "firstname",
       label: "שם פרטי",
       type: "text",
-      placeholder: "ישראל",
+      placeholder: "ג'נטלמן",
       required: true,
       containerClassName: "w-full",
       halfWidth: true

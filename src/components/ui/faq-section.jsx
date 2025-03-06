@@ -85,6 +85,9 @@ const FaqSection = React.forwardRef(
                 <Button 
                   size="sm" 
                   className="bg-[#242422] hover:bg-[#343432] text-[#e2dfce] cursor-pointer"
+                  onClick={() => {
+                    document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   {contactInfo.buttonText}
                 </Button>

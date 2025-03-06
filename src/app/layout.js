@@ -28,9 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="he" dir="rtl">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rubik.variable} antialiased font-rubik`}
-      >
+      <body className="min-h-screen bg-[#e2dfce]">
         {children}
       </body>
     </html>

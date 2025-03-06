@@ -13,13 +13,13 @@ import {
 } from "@/components/ui/accordion";
 
 const FaqSection = React.forwardRef(
-  ({ className, title, description, items, contactInfo, ...props }, ref) => {
+  ({ title, description, items, contactInfo, id, className, ...props }, ref) => {
     return (
       <section
         ref={ref}
-        className={cn("w-full bg-[#e2dfce]", className)}
+        id={id}
+        className={cn("py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]", className)}
         {...props}
-        dir="rtl"
       >
         <SectionHeader 
           title={title}

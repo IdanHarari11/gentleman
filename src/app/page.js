@@ -8,18 +8,31 @@ import { ImageCarousel } from "@/components/ui/image-carousel";
 import { FaqSection } from "@/components/ui/faq-section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { SignupForm } from "@/components/ui/signup-form";
-import { products, loadingStates, galleryImages1, galleryImages2, faqItems } from "@/constants/index";
+import { FloatingNav } from "@/components/ui/floating-navbar";
+import { products, loadingStates, galleryImages1, galleryImages2, faqItems, navItems } from "@/constants/index";
+
 
 export default function Home() {
   
   return (
-    <div className="bg-[#e2dfce] min-h-screen" dir="rtl">
-      <HeroParallax
-        products={products}
-        enableHover={false}
+    <div className="bg-[#e2dfce] min-h-screen relative" dir="rtl">
+      {/* Add the FloatingNav component */}
+      <FloatingNav 
+        navItems={navItems} 
+        className="bg-[#e2dfce]/30 border-[#a19f8c]/30 z-[9999]"
       />
+      
+      {/* Hero Section */}
+      <div id="hero">
+        <HeroParallax
+          products={products}
+          enableHover={false}
+        />
+      </div>
 
+      {/* Model Section */}
       <SectionHeader
+        id="model"
         title="המודל החדש של הג'נטלמן המודרני לשנת 2025"
         description="המועדון מבוסס על שלושה קטגוריות עיקריות:"
       />
@@ -38,8 +51,9 @@ export default function Home() {
         secondImage="/images/gentleman/oldGenGentleman.webp"
       /> */}
 
-      
+      {/* Behavior Section */}
       <SectionHeader
+        id="behavior"
         title="איך מתנהג גנטלמן במועדון"
         description="הגנטלמן המודרני מתנהל לפי קוד התנהגות ייחודי. הנה כמה מהעקרונות המנחים אותו:"
       />
@@ -66,7 +80,9 @@ export default function Home() {
       </div>
       
       {/* Club Content Timeline */}
-      <ClubContentTimeline />
+      <div id="content">
+        <ClubContentTimeline />
+      </div>
 
       {/* Gallery Images 2 - Three static images with horizontal scroll on mobile */}
       <div className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
@@ -76,18 +92,20 @@ export default function Home() {
       </div>
       
       {/* Signup Form Section */}
-      <div id='signup' className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
-        <SectionHeader
-          title="הצטרף למועדון הג'נטלמן"
-          description="מלא את הפרטים שלך כדי להצטרף למועדון ולקבל גישה לתוכן בלעדי"
-        />
-        <div className="max-w-5xl mx-auto mt-8">
+      <SectionHeader
+        id="signup"
+        title="הצטרף למועדון הג'נטלמן"
+        description="מלא את הפרטים שלך כדי להצטרף למועדון ולקבל גישה לתוכן בלעדי"
+      />
+      <div className="px-4 md:px-8 pb-10 bg-[#e2dfce]">
+        <div className="max-w-5xl mx-auto">
           <SignupForm />
         </div>
       </div>
       
       {/* FAQ Section */}
       <FaqSection
+        id="faq"
         title="שאלות נפוצות"
         description="תשובות לשאלות הנפוצות ביותר על המועדון"
         items={faqItems}

@@ -1,3 +1,26 @@
+export const navItems = [
+  {
+    name: "ראשי",
+    link: "#hero",
+  },
+  {
+    name: "המודל",
+    link: "#model",
+  },
+  {
+    name: "קוד התנהגות",
+    link: "#behavior",
+  },
+  {
+    name: "תוכן המועדון",
+    link: "#content",
+  },
+  {
+    name: "שאלות",
+    link: "#faq",
+  },
+];
+
 export const products = [
     {
       thumbnail:

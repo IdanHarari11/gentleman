@@ -4,9 +4,10 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
-const SectionHeader = ({
+export const SectionHeader = ({
   title,
   description,
+  id,
   className,
   noDivider = false,
   noAnimation = false,
@@ -31,6 +32,7 @@ const SectionHeader = ({
 
   return (
     <div 
+      id={id}
       className={cn(paddingY, paddingX, bgColor)} 
       style={{ paddingBottom }}
       {...props}
@@ -55,6 +57,4 @@ const SectionHeader = ({
       </HeaderComponent>
     </div>
   );
-};
-
-export { SectionHeader }; 
+}; 

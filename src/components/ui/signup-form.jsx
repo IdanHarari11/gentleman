@@ -65,7 +65,7 @@ export function SignupForm() {
   ];
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 bg-[#d6d3c2]/80 backdrop-blur-sm border border-[#c8c5b4] shadow-md" dir="rtl">
+    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 bg-[#d6d3c2]/80 backdrop-blur-sm border border-[#c8c5b4] shadow-md" dir="rtl">
       <h2 className="font-bold text-xl text-[#2c2c2c]">
         ברוכים הבאים למועדון הג'נטלמן
       </h2>

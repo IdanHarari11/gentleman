@@ -4,6 +4,7 @@ import { CompareSection } from "@/components/ui/compare-section";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { ClubContentTimeline } from "@/components/club-content-timeline";
 import Image from "next/image";
+import { ImageCarousel } from "@/components/ui/image-carousel";
 
 export default function Home() {
   const products = [
@@ -118,6 +119,12 @@ export default function Home() {
     }
   ];
   
+  const galleryImages = [
+    { src: "/images/girls/girl2.png", alt: "Girl 2" },
+    { src: "/images/girls/girl1.png", alt: "Girl 1" },
+    { src: "/images/girls/girl3.png", alt: "Girl 3" },
+  ];
+  
   return (
     <div className="bg-[#e2dfce] min-h-screen">
       <HeroParallax
@@ -125,6 +132,13 @@ export default function Home() {
         enableHover={false}
       />
       <AppleCardsSection />
+      
+      {/* Three static images with horizontal scroll on mobile */}
+      <div className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
+        <div className="max-w-5xl mx-auto">
+          <ImageCarousel images={galleryImages} />
+        </div>
+      </div>
       
       {/* Enhanced Compare Section with animations */}
       {/* <CompareSection 
@@ -153,7 +167,7 @@ export default function Home() {
       <div className="bg-[#e2dfce] px-4 md:px-8 pb-16">
         <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row-reverse items-center sx:gap-[23rem]">
         {/* Image - Left side on desktop, bottom on mobile */}
-          <div className="w-full md:w-1/2 md:mt-0 flex justify-center md:justify-start">
+          <div className="w-full md:w-1/2 md:mt-0 flex justify-center md:justify-start mt-[20rem] xl:mt-[0rem] lg:mt-[0rem] md:mt-[0rem]">
             <div className="relative w-full max-w-md h-[400px] md:h-[500px]">
               <Image 
                 src="/images/Tomer/tomer.png" 

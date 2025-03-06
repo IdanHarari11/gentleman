@@ -75,7 +75,7 @@ export const AppleCardsSection = () => {
       )
     },
     {
-      title: "הבנת המשחק – הבנת הסביבה",
+      title: "הבנת המשחק – המניעים הפסיכולוגיים של בני האדם ",
       content: (
         <>
           <p className="mb-4">

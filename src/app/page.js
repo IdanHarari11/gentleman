@@ -121,10 +121,16 @@ export default function Home() {
     }
   ];
   
-  const galleryImages = [
+  const galleryImages1 = [
     { src: "/images/girls/girl2.png", alt: "Girl 2" },
     { src: "/images/girls/girl1.png", alt: "Girl 1" },
     { src: "/images/girls/girl3.png", alt: "Girl 3" },
+  ];
+
+  const galleryImages2 = [
+    { src: "/images/girls/girl10.png", alt: "Girl 3" },
+    { src: "/images/girls/girl5.png", alt: "Girl 1" },
+    { src: "/images/girls/girl14.png", alt: "Girl 2" },
   ];
   
   const faqItems = [
@@ -163,10 +169,10 @@ export default function Home() {
       />
       <AppleCardsSection />
       
-      {/* Three static images with horizontal scroll on mobile */}
+      {/* Gallery Images 1 - Three static images with horizontal scroll on mobile */}
       <div className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
         <div className="max-w-5xl mx-auto">
-          <ImageCarousel images={galleryImages} />
+          <ImageCarousel images={galleryImages1} />
         </div>
       </div>
       
@@ -205,6 +211,13 @@ export default function Home() {
       
       {/* Club Content Timeline */}
       <ClubContentTimeline />
+
+      {/* Gallery Images 2 - Three static images with horizontal scroll on mobile */}
+      <div className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
+        <div className="max-w-5xl mx-auto">
+          <ImageCarousel images={galleryImages2} />
+        </div>
+      </div>
       
       {/* FAQ Section */}
       <FaqSection

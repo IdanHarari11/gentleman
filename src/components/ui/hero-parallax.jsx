@@ -70,7 +70,7 @@ export const HeroParallax = ({
   return (
     (<div
       ref={ref}
-      className="h-[130vh] xl:h-[100vh] lg:h-[100vh] md:h-[100vh] py-0 md:py-0 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#e2dfce]" style={{ paddingTop: "10rem" }}>
+      className="h-[150vh] xl:h-[115vh] lg:h-[115vh] md:h-[115vh] py-0 md:py-0 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#e2dfce]" style={{ paddingTop: "10rem" }}>
       <Header />
       <motion.div
         style={{
@@ -222,9 +222,8 @@ export const Header = () => {
               <p className="text-right mt-2 md:mt-4 text-sm md:text-sm font-light text-[#343432]">— ויקיפדיה</p>
             </div>
             <p className="pr-2 font-light text-lg">
-              השנה 2025 ימי הביינים והאצולה מאחורינו והמילה גנטלמן היא עדיין בעלת חשיבות וערך גבוהה מאוד אבל לא מספיק מדוברת 
-              או לא מפותחת מעבר לתיאור השטחי שלה של לפתוח דלת למישהי או להביא לה מעיל כשקר לה והאמת שגם די הגיע הזמן שמישהו יעשה לה עדכון גרסה כדי להתאים אותה למאפיינים של העידן החדש - שנת 2025 במדינת ישראל ובעולם באופן 
-              כללי.
+            השנה 2025 ימי הביינים והאצולה מאחורינו והמילה גנטלמן היא עדיין בעלת חשיבות וערך גבוהה מאוד אבל לא מספיק מדוברת או לא מפותחת מעבר לתיאור השטחי שלה של לפתוח דלת למישהי או להביא לה מעיל כשקר לה והאמת שגם די הגיע הזמן שמישהו יעשה לה עדכון גרסה כדי להתאים אותה למאפיינים של העידן החדש - שנת 2025 במדינת ישראל ובעולם באופן 
+            כללי .
             </p>
           </div>
         </div>

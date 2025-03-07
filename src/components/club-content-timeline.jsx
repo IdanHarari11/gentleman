@@ -52,12 +52,12 @@ export function ClubContentTimeline() {
       title: "תכנים נוספים",
       content: (
         <div className="text-right">
-          <p className="text-[#343432] text-sm md:text-base font-normal mb-4 leading-relaxed">
-            תכנים מוספים של ערכים ועקרונות שיעזרו לך להפוך לגנטלמן מודרני אמיתי.
-          </p>
+          {/* <p className="text-[#343432] text-sm md:text-base font-normal mb-4 leading-relaxed">
+          </p> */}
           <div className="bg-[#d4d1c0] bg-opacity-30 p-4 rounded-lg border-r-2 border-[#242422] mb-6">
             <h4 className="font-bold text-[#242422] mb-2">בונוסים מיוחדים:</h4>
             <ul className="list-disc list-inside space-y-2 text-[#343432] text-sm md:text-base">
+              <li>תכנים על ערכים ועקרונות שיהפכו אותך לג'נטלמן מודרני</li>
               <li>המילון השלם של כל מונחי הפיק אפ מ-א׳ ועד ת׳</li>
               <li>סודות מעולם הפסיכולגיה האפלה</li>
               <li>המדע שמאחורי כריזמה והומור</li>

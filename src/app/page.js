@@ -9,13 +9,13 @@ import { FaqSection } from "@/components/ui/faq-section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { SignupForm } from "@/components/ui/signup-form";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { products, loadingStates, galleryImages1, galleryImages2, faqItems, navItems } from "@/constants/index";
+import { products, loadingStates, galleryImages1, galleryImages2, galleryImages3, faqItems, navItems } from "@/constants/index";
 
 
 export default function Home() {
   
   return (
-    <div className="bg-[#e2dfce] min-h-screen relative" dir="rtl">
+    <main className="bg-[#e2dfce] min-h-screen relative" dir="rtl">
       {/* Add the FloatingNav component */}
       <FloatingNav 
         navItems={navItems} 
@@ -23,12 +23,12 @@ export default function Home() {
       />
       
       {/* Hero Section */}
-      <div id="hero">
+      <section id="hero">
         <HeroParallax
           products={products}
           enableHover={false}
         />
-      </div>
+      </section>
 
       {/* Model Section */}
       <SectionHeader
@@ -39,11 +39,11 @@ export default function Home() {
       <AppleCardsSection />
       
       {/* Gallery Images 1 - Three static images with horizontal scroll on mobile */}
-      <div className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
+      <section className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
         <div className="max-w-5xl mx-auto">
           <ImageCarousel images={galleryImages1} />
         </div>
-      </div>
+      </section>
       
       {/* Enhanced Compare Section with animations */}
       {/* <CompareSection 
@@ -58,7 +58,7 @@ export default function Home() {
         description="הגנטלמן המודרני מתנהל לפי קוד התנהגות ייחודי. הנה כמה מהעקרונות המנחים אותו:"
       />
       {/* MultiStepLoader with Image - Desktop: Side by Side, Mobile: Stacked */}
-      <div className="bg-[#e2dfce] px-4 md:px-8 pb-16">
+      <section className="bg-[#e2dfce] px-4 md:px-8 pb-16">
         <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row-reverse items-center sx:gap-[23rem]">
         {/* Image - Left side on desktop, bottom on mobile */}
           <div className="w-full md:w-1/2 md:mt-0 flex justify-center md:justify-start mt-[20rem] xl:mt-[0rem] lg:mt-[0rem] md:mt-[0rem]">
@@ -77,19 +77,19 @@ export default function Home() {
             <MultiStepLoader loadingStates={loadingStates} loading={true} duration={2000} />
           </div>
         </div>
-      </div>
+      </section>
       
       {/* Club Content Timeline */}
-      <div id="content">
+      <section id="content">
         <ClubContentTimeline />
-      </div>
+      </section>
 
       {/* Gallery Images 2 - Three static images with horizontal scroll on mobile */}
-      <div className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
+      <section className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
         <div className="max-w-5xl mx-auto">
           <ImageCarousel images={galleryImages2} />
         </div>
-      </div>
+      </section>
       
       {/* Signup Form Section */}
       <SectionHeader
@@ -115,6 +115,13 @@ export default function Home() {
           // onContact: () => console.log("Contact clicked"),
         }}
       />
-    </div>
+
+      {/* Gallery Images 3 */}
+      <section className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
+        <div className="max-w-5xl mx-auto">
+          <ImageCarousel images={galleryImages3} />
+        </div>
+      </section>
+    </main>
   );
 }

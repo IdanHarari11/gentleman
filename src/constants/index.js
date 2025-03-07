@@ -15,10 +15,10 @@ export const navItems = [
     name: "תוכן המועדון",
     link: "#content",
   },
-  {
-    name: "שאלות",
-    link: "#faq",
-  },
+  // {
+  //   name: "שאלות",
+  //   link: "#faq",
+  // },
 ];
 
 export const products = [
@@ -143,6 +143,27 @@ export const products = [
     { src: "/images/girls/girl10.png", alt: "Girl 3" },
     { src: "/images/girls/girl5.png", alt: "Girl 1" },
     { src: "/images/girls/girl14.png", alt: "Girl 2" },
+  ];
+
+  export const galleryImages3 = [
+    { src: "/images/girls/girl1.png", alt: "Girl 1" },
+    { src: "/images/girls/girl2.png", alt: "Girl 2" },
+    { src: "/images/girls/girl3.png", alt: "Girl 3" },
+    { src: "/images/girls/girl4.png", alt: "Girl 4" },
+    { src: "/images/girls/girl5.png", alt: "Girl 5" },
+    { src: "/images/girls/girl6.png", alt: "Girl 6" },
+    { src: "/images/girls/girl7.png", alt: "Girl 7" },
+    { src: "/images/girls/girl8.png", alt: "Girl 8" },
+    { src: "/images/girls/girl9.png", alt: "Girl 9" },
+    { src: "/images/girls/girl10.png", alt: "Girl 10" },
+    { src: "/images/girls/girl11.png", alt: "Girl 11" },
+    { src: "/images/girls/girl12.png", alt: "Girl 12" },
+    { src: "/images/girls/girl13.png", alt: "Girl 13" },
+    { src: "/images/girls/girl14.png", alt: "Girl 14" },
+    { src: "/images/girls/girl15.png", alt: "Girl 15" },
+    { src: "/images/girls/girl16.png", alt: "Girl 16" },
+    { src: "/images/girls/girl17.png", alt: "Girl 17" },
+    { src: "/images/girls/girl18.png", alt: "Girl 18" },
   ];
   
   export const faqItems = [

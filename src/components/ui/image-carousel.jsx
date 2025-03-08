@@ -73,11 +73,73 @@ export const ImageCarousel = ({ images }) => {
     }
   };
 
+  // Determine if we should show condensed indicators (for many images)
+  const showCondensedIndicators = images.length > 5;
+
+  // Generate appropriate indicators based on number of images
+  const renderIndicators = () => {
+    if (!showCondensedIndicators) {
+      // Standard indicators for 5 or fewer images
+      return images.map((_, index) => (
+        <button
+          key={`indicator-${index}`}
+          onClick={() => scrollToSlide(index)}
+          className={`w-6 h-1.5 rounded-full transition-all duration-300 ${
+            activeIndex === index 
+              ? 'bg-[#242422] opacity-80 w-8' 
+              : 'bg-[#242422] opacity-30'
+          }`}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ));
+    } else {
+      // Condensed indicators for more than 5 images
+      // Show first, last, active, and one on each side of active
+      const indicatorIndexes = new Set();
+      
+      // Always include first and last
+      indicatorIndexes.add(0);
+      indicatorIndexes.add(images.length - 1);
+      
+      // Include active and adjacent
+      indicatorIndexes.add(activeIndex);
+      if (activeIndex > 0) indicatorIndexes.add(activeIndex - 1);
+      if (activeIndex < images.length - 1) indicatorIndexes.add(activeIndex + 1);
+      
+      // Convert to array and sort
+      const sortedIndexes = Array.from(indicatorIndexes).sort((a, b) => a - b);
+      
+      // Create indicators with ellipses where needed
+      return sortedIndexes.map((index, i) => {
+        // Add ellipsis if there's a gap
+        const showEllipsisBefore = i > 0 && sortedIndexes[i-1] < index - 1;
+        
+        return (
+          <React.Fragment key={`indicator-group-${index}`}>
+            {showEllipsisBefore && (
+              <span className="text-[#242422] opacity-50 mx-1">•••</span>
+            )}
+            <button
+              key={`indicator-${index}`}
+              onClick={() => scrollToSlide(index)}
+              className={`w-6 h-1.5 rounded-full transition-all duration-300 ${
+                activeIndex === index 
+                  ? 'bg-[#242422] opacity-80 w-8' 
+                  : 'bg-[#242422] opacity-30'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          </React.Fragment>
+        );
+      });
+    }
+  };
+
   return (
     <>
       {/* Desktop: Grid layout */}
       <div className="hidden md:grid md:grid-cols-3 md:gap-6">
-        {images.map((image, index) => (
+        {images.slice(0, 6).map((image, index) => (
           <div 
             key={`desktop-${index}`}
             className="relative aspect-[3/4] max-w-xs mx-auto w-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
@@ -120,19 +182,8 @@ export const ImageCarousel = ({ images }) => {
       
       {/* Scroll indicator for mobile */}
       <div className="flex justify-center mt-4 md:hidden">
-        <div className="flex space-x-2">
-          {images.map((_, index) => (
-            <button
-              key={`indicator-${index}`}
-              onClick={() => scrollToSlide(index)}
-              className={`w-6 h-1.5 rounded-full transition-all duration-300 ${
-                activeIndex === index 
-                  ? 'bg-[#242422] opacity-80 w-8' 
-                  : 'bg-[#242422] opacity-30'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+        <div className="flex space-x-2 items-center">
+          {renderIndicators()}
         </div>
       </div>
     </>

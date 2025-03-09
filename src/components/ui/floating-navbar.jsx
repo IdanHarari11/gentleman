@@ -111,7 +111,7 @@ export const FloatingNav = ({
               href={navItem.link}
               onClick={(e) => handleNavClick(e, navItem.link)}
               className={cn(
-                "relative items-center flex text-[#3a3935] hover:text-black px-1 sm:px-3 py-1 transition-colors",
+                "relative items-center flex text-[#3a3935] hover:text-black px-1 sm:px-3 py-1 transition-colors text-center",
                 isActive && "text-black font-semibold"
               )}
             >

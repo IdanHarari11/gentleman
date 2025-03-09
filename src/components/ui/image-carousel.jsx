@@ -135,11 +135,31 @@ export const ImageCarousel = ({ images }) => {
     }
   };
 
+  // Determine grid columns based on image count
+  const getGridClass = () => {
+    const count = images.length;
+    
+    // For 1-3 images, use one row
+    if (count <= 3) return "md:grid-cols-3";
+    
+    // For 4 images, use 2x2 grid
+    if (count === 4) return "md:grid-cols-2";
+    
+    // For 5-6 images, use 3x2 grid (3 columns)
+    if (count <= 6) return "md:grid-cols-3";
+    
+    // For 7-8 images, use 4x2 grid (4 columns)
+    if (count <= 8) return "md:grid-cols-4";
+    
+    // For 9+ images, use 3 columns with multiple rows
+    return "md:grid-cols-3";
+  };
+
   return (
     <>
-      {/* Desktop: Grid layout */}
-      <div className="hidden md:grid md:grid-cols-3 md:gap-6">
-        {images.slice(0, 6).map((image, index) => (
+      {/* Desktop: Grid layout with dynamic columns */}
+      <div className={`hidden md:grid ${getGridClass()} gap-4 md:gap-6`}>
+        {images.map((image, index) => (
           <div 
             key={`desktop-${index}`}
             className="relative aspect-[3/4] max-w-xs mx-auto w-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"

@@ -10,6 +10,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { SignupForm } from "@/components/ui/signup-form";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { products, loadingStates, galleryImages1, galleryImages2, galleryImages3, faqItems, navItems } from "@/constants/index";
+import AboutMe from "@/components/about-me.jsx";
 
 
 export default function Home() {
@@ -83,6 +84,13 @@ export default function Home() {
       <section id="content">
         <ClubContentTimeline />
       </section>
+
+      {/* About Me Section */}
+      <SectionHeader
+        id="about-me"
+        title="קצת עליי"
+      />
+      <AboutMe />
 
       {/* Gallery Images 2 - Three static images with horizontal scroll on mobile */}
       <section className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">

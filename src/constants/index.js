@@ -12,7 +12,7 @@ export const navItems = [
     link: "#behavior",
   },
   {
-    name: "תוכן המועדון",
+    name: "חזון המועדון",
     link: "#content",
   },
   {

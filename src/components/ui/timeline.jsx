@@ -40,7 +40,7 @@ export const Timeline = ({ data }) => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#242422] tracking-tight">
-            עיקר תכני המועדון
+            חזון ותכני המועדון
           </h2>
           <div className="w-24 h-1 bg-[#242422] opacity-30 mx-auto mb-8 rounded-full"></div>
         </div>

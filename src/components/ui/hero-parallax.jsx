@@ -205,8 +205,8 @@ export const Header = () => {
           />
         </div>
         <div className="z-10 w-full md:w-2/3 md:pl-8 font-rubik">
-          <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#242422] mb-2 md:mb-6 tracking-tight leading-tight">
-            ברוך הבא לג'נטלמנס טיים
+          <h1 className="text-3xl text-center sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#242422] mb-2 md:mb-6 tracking-tight leading-tight">
+            ברוך הבא <br/> לג'נטלמנס טיים
           </h1>
           <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-medium text-[#343432] mb-3 md:mb-8 leading-relaxed">
             מועדון תכנים אקסלוסיבי לגברים איכותיים שמעוניינים להתקדם לשלב הבא במשחק שלהם – עם נשים בזירה החברתית ובעולם העסקים.

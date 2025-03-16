@@ -1,6 +1,5 @@
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { AppleCardsSection } from "@/components/ui/apple-card";
-import { CompareSection } from "@/components/ui/compare-section";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 import { ClubContentTimeline } from "@/components/club-content-timeline";
 import Image from "next/image";
@@ -66,7 +65,7 @@ export default function Home() {
           <div className="w-full md:w-1/2 md:mt-0 flex justify-center md:justify-start mt-[20rem] xl:mt-[0rem] lg:mt-[0rem] md:mt-[0rem]">
             <div className="relative w-full max-w-md h-[400px] md:h-[500px]">
               <Image 
-                src="/images/Tomer/tomer.png" 
+                src="/images/Tomer/tomer.jpg" 
                 alt="Tomer" 
                 fill
                 className="object-contain rounded-xl"

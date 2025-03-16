@@ -10,7 +10,8 @@ export function SignupForm() {
     lastname: "",
     email: "",
     password: "",
-    phone: ""
+    phone: "",
+    notes: ""
   });
 
   const handleChange = (e) => {
@@ -60,6 +61,14 @@ export function SignupForm() {
       type: "tel",
       placeholder: "050-0000000",
       required: true,
+      containerClassName: "mb-4"
+    },
+    {
+      id: "notes",
+      label: "הערות",
+      type: "textarea",
+      placeholder: "דבר אליי ג'נטלמן",
+      required: false,
       containerClassName: "mb-8"
     }
   ];
@@ -94,16 +103,36 @@ export function SignupForm() {
         {inputFields.filter(field => !field.halfWidth).map((field) => (
           <LabelInputContainer key={field.id} className={field.containerClassName}>
             <Label htmlFor={field.id} className="text-[#2c2c2c]">{field.label}</Label>
-            <Input 
-              id={field.id}
-              placeholder={field.placeholder}
-              type={field.type}
-              name={field?.name}
-              required={field.required}
-              className="bg-[#f0ede0] border-[#c8c5b4] focus-visible:ring-[#a19f92] text-[#2c2c2c]"
-              value={formData[field.id]}
-              onChange={handleChange}
-            />
+            {field.type === "textarea" ? (
+              <div className="relative">
+                <textarea
+                  id={field.id}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  className="bg-[#f0ede0] border border-[#c8c5b4] hover:border-[#a19f92]/70 focus:border-[#a19f92] focus:ring-2 focus:ring-[#a19f92]/20 focus:outline-none text-[#2c2c2c] rounded-md p-4 min-h-[150px] w-full resize-y shadow-inner transition-all duration-200 font-light"
+                  value={formData[field.id]}
+                  onChange={handleChange}
+                />
+                <div className="absolute bottom-2 right-2 text-[#a19f92]/50 text-xs">
+                  {formData[field.id].length > 0 ? `${formData[field.id].length} תווים` : ''}
+                </div>
+                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#a19f92]/30 rounded-tl-sm"></div>
+                <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#a19f92]/30 rounded-tr-sm"></div>
+                <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#a19f92]/30 rounded-bl-sm"></div>
+                <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#a19f92]/30 rounded-br-sm"></div>
+              </div>
+            ) : (
+              <Input 
+                id={field.id}
+                placeholder={field.placeholder}
+                type={field.type}
+                name={field?.name}
+                required={field.required}
+                className="bg-[#f0ede0] border-[#c8c5b4] focus-visible:ring-[#a19f92] text-[#2c2c2c]"
+                value={formData[field.id]}
+                onChange={handleChange}
+              />
+            )}
           </LabelInputContainer>
         ))}
 

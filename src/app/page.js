@@ -11,6 +11,7 @@ import { SignupForm } from "@/components/ui/signup-form";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { products, loadingStates, galleryImages1, galleryImages2, galleryImages3, faqItems, navItems } from "@/constants/index";
 import AboutMe from "@/components/about-me.jsx";
+import Slogan from "@/components/ui/slogan";
 
 
 export default function Home() {
@@ -117,12 +118,15 @@ export default function Home() {
         title="שאלות נפוצות"
         description="תשובות לשאלות הנפוצות ביותר על המועדון"
         items={faqItems}
-        contactInfo={{
-          title: "יש לך שאלות נוספות?",
-          buttonText: "צור קשר",
-          // onContact: () => console.log("Contact clicked"),
-        }}
+        // contactInfo={{
+        //   title: "יש לך שאלות נוספות?",
+        //   buttonText: "צור קשר",
+        //   // onContact: () => console.log("Contact clicked"),
+        // }}
       />
+
+      {/* Slogan */}
+      <Slogan />
 
       {/* Gallery Images 3 */}
       <section className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">

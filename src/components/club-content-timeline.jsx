@@ -9,7 +9,7 @@ export function ClubContentTimeline() {
       content: (
         <div className="text-right">
           <p className="text-[#343432] text-sm md:text-base font-normal mb-4 leading-relaxed">
-            יצירת תקשורת בעלת כוונה ואופי מיני שמטרתה לקדם את השיח שלך עם נשים ולהביא אותך ליותר אינטרקציות מיניות.
+            יצירת תקשורת בעלת כוונה ואופי מיני, שמטרתה לקדם את השיח שלך עם נשים, ולהביא אותך ליותר אינטרקציות מיניות.
           </p>
           <p className="text-[#343432] text-sm md:text-base font-normal mb-8 leading-relaxed">
             מציאת השותפה הנכונה לך, ותחזוק מערכות יחסים עמוקות ואיכותיות יותר.
@@ -59,12 +59,12 @@ export function ClubContentTimeline() {
           {/* <p className="text-[#343432] text-sm md:text-base font-normal mb-4 leading-relaxed">
           </p> */}
           <div className="bg-[#d4d1c0] bg-opacity-30 p-4 rounded-lg border-r-2 border-[#242422] mb-6">
-            <h4 className="font-bold text-[#242422] mb-2">תכנים נוספים:</h4>
+            <h4 className="font-bold text-[#242422] mb-2">תכני אקסטרה:</h4>
             <ul className="list-disc list-inside space-y-2 text-[#343432] text-sm md:text-base">
               <li>המילון השלם של כל מונחי הפיק אפ מ-א׳ ועד ת׳</li>
               <li>סודות מעולם הפסיכולגיה האפלה</li>
               <li>המדע שמאחורי כריזמה והומור</li>
-              <li>מאסטר טקסטינג משיכה דרך רשתות חברתיות ואפליקציות היכרויות</li>
+              <li>מאסטר טקסטינג, משיכה דרך רשתות חברתיות ואפליקציות היכרויות</li>
             </ul>
           </div>
         </div>

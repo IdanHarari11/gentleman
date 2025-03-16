@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
-export const AppleCard = ({ title, content, index }) => {
+export const AppleCard = ({ title, subtitle, content, index }) => {
   const contentRef = useRef(null);
   
   // Soft gradient colors based on the site's color scheme
@@ -34,7 +34,11 @@ export const AppleCard = ({ title, content, index }) => {
       transition={{ delay: index * 0.1 }}
       whileHover={{ y: -5 }}
     >
-      <h3 className="text-xl md:text-2xl font-bold mb-4 text-[#242422] text-center">{title}</h3>
+      <h3 className="text-xl md:text-2xl font-bold mb-1 text-[#242422] text-center">{title}</h3>
+      {subtitle && (
+        <h4 className="text-md md:text-lg font-medium mb-4 text-[#242422] text-center opacity-80">{subtitle}</h4>
+      )}
+      {!subtitle && <div className="mb-3"></div>}
       
       <div 
         className="relative overflow-y-auto flex-grow custom-scrollbar pr-3"
@@ -75,7 +79,8 @@ export const AppleCardsSection = () => {
       )
     },
     {
-      title: "הבנת המשחק – המניעים הפסיכולוגיים של בני האדם ",
+      title: "הבנת המשחק – המניעים הפסיכולוגיים של בני האדם",
+      subtitle: "לשחק טוב יותר",
       content: (
         <>
           <p className="mb-4">
@@ -114,10 +119,10 @@ export const AppleCardsSection = () => {
       content: (
         <>
           <p className="mb-4">
-            מה שווה כוחו של ג'נטלמן אחד לבדו, לעומת הכוח של חבורת ג'נטלמנים המאוחדים יחד ושואפים לאותה מטרה?
+            מה שווה כוחו של ג'נטלמן אחד לבדו, לעומת הכוח של חבורת ג'נטלמנים, המאוחדים יחד ושואפים לאותה מטרה?
           </p>
           <p className="mb-4">
-           להיות מוקף בג'נטלמנים אחרים זהו יתרון עצום – קהילה חזקה שדוחפת אחד את השני קדימה בפן המנטלי וההתפתחותי .חברי מועדון שמשתפים מניסיונם האישי, לומדים מהצלחות וכישלונות, ויוצרים סיעור מוחות גברי.
+           להיות מוקף בג'נטלמנים אחרים זהו יתרון עצום – קהילה חזקה שדוחפת אחד את השני קדימה בפן המנטלי וההתפתחותי. חברי מועדון שמשתפים מניסיונם האישי, לומדים מהצלחות וכישלונות, ויוצרים סיעור מוחות גברי.
           </p>
           <p className="mb-4">
             מערכת קשרים חזקה התומכת אחד בשני, מספקת וינגמנים למשחק יום או לילה, ומאפשרת יצירת קשרים חדשים עם גברים איכותיים מכל הארץ.
@@ -138,6 +143,7 @@ export const AppleCardsSection = () => {
             <AppleCard 
               key={index}
               title={card.title}
+              subtitle={card.subtitle}
               content={card.content}
               index={index}
             />

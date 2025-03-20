@@ -63,12 +63,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row-reverse items-center sx:gap-[23rem]">
         {/* Image - Left side on desktop, bottom on mobile */}
           <div className="w-full md:w-1/2 md:mt-0 flex justify-center md:justify-start mt-[20rem] xl:mt-[0rem] lg:mt-[0rem] md:mt-[0rem]">
-            <div className="relative w-full max-w-md h-[400px] md:h-[500px]">
+            <div className="relative w-full max-w-md h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.1)] border border-[#a19f8c]/30">
               <Image 
                 src="/images/Tomer/tomer.jpg" 
                 alt="Tomer" 
                 fill
-                className="object-contain rounded-xl"
+                className="object-cover"
                 priority
               />
             </div>

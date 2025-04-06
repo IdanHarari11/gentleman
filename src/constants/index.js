@@ -165,7 +165,7 @@ export const products = [
     { src: "/images/girls/girl16.png", alt: "Girl 16" },
     { src: "/images/girls/girl17.png", alt: "Girl 17" },
     { src: "/images/girls/girl18.png", alt: "Girl 18" },
-    { src: "/images/girls/girl19.png", alt: "Girl 19" },
+    { src: "/images/girls/girl19.jpg", alt: "Girl 19" },
     { src: "/images/whatsapp-messages/wa4.jpg", alt: "whatsapp message 4" },
     { src: "/images/girls/girl20.jpg", alt: "Girl 20" },
   ];

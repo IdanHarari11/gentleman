@@ -1,3 +1,5 @@
+"use client";
+
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { AppleCardsSection } from "@/components/ui/apple-card";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
@@ -11,10 +13,9 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import { products, loadingStates, galleryImages1, galleryImages2, galleryImages3, faqItems, navItems } from "@/constants/index";
 import AboutMe from "@/components/about-me.jsx";
 import Slogan from "@/components/ui/slogan";
-
+import ContactForm from "@/components/contact-form";
 
 export default function Home() {
-  
   return (
     <main className="bg-[#e2dfce] min-h-screen relative" dir="rtl">
       {/* Add the FloatingNav component */}
@@ -133,6 +134,7 @@ export default function Home() {
           <ImageCarousel images={galleryImages3} />
         </div>
       </section>
+      <ContactForm />
     </main>
   );
 }

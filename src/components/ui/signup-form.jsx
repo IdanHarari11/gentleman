@@ -10,8 +10,6 @@ export function SignupForm() {
     lastname: "",
     email: "",
     password: "",
-    phone: "",
-    notes: ""
   });
 
   const handleChange = (e) => {
@@ -54,32 +52,20 @@ export function SignupForm() {
       placeholder: "your@email.com",
       required: true,
       containerClassName: "mb-4"
-    },
-    {
-      id: "phone",
-      label: "מספר טלפון",
-      type: "tel",
-      placeholder: "050-0000000",
-      required: true,
-      containerClassName: "mb-4"
-    },
-    {
-      id: "notes",
-      label: "הערות",
-      type: "textarea",
-      placeholder: "דבר אליי ג'נטלמן",
-      required: false,
-      containerClassName: "mb-8"
     }
   ];
 
   return (
     <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 bg-[#d6d3c2]/80 backdrop-blur-sm border border-[#c8c5b4] shadow-md" dir="rtl">
       <h2 className="font-bold text-xl text-[#2c2c2c]">
-        ברוכים הבאים למועדון הג'נטלמן
+        השאר פרטים כדי לקבל את המשפטים עכשיו
       </h2>
       <p className="text-[#4a4a4a] text-sm max-w-sm mt-2">
-        הירשמו למועדון כדי לקבל גישה לתוכן בלעדי ועדכונים
+        ✓ משפטי פתיחה משחק יום
+      <br/>
+        ✓ משפטי פתיחה למשחק לילה
+      <br/>
+        ✓ משפטים שוברי התנגדויות לבחורה "עם חבר"
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>

@@ -11,6 +11,12 @@ export function SignupForm() {
     email: "",
     password: "",
   });
+  
+  const [status, setStatus] = useState({
+    submitting: false,
+    success: null,
+    error: null,
+  });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -20,9 +26,53 @@ export function SignupForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted", formData);
+    setStatus({ submitting: true, success: null, error: null });
+    
+    try {
+      const response = await fetch('/api/email/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstname: formData.firstname,
+          lastname: formData.lastname,
+          email: formData.email,
+        }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setStatus({
+          submitting: false,
+          success: 'תודה! המשפטים המנצחים נשלחו לאימייל שלך.',
+          error: null,
+        });
+        
+        // איפוס הטופס
+        setFormData({
+          firstname: '',
+          lastname: '',
+          email: '',
+          password: '',
+        });
+      } else {
+        setStatus({
+          submitting: false,
+          success: null,
+          error: result.error || 'אירעה שגיאה בשליחת האימייל',
+        });
+      }
+    } catch (error) {
+      setStatus({
+        submitting: false,
+        success: null,
+        error: error.message || 'אירעה שגיאה בשליחת האימייל',
+      });
+    }
   };
 
   const inputFields = [
@@ -69,6 +119,18 @@ export function SignupForm() {
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
+        {status.success && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-right">
+            {status.success}
+          </div>
+        )}
+        
+        {status.error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-right">
+            {status.error}
+          </div>
+        )}
+        
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 md:space-x-reverse mb-4">
           {inputFields.filter(field => field.halfWidth).map((field) => (
             <LabelInputContainer key={field.id} className={field.containerClassName}>
@@ -125,8 +187,9 @@ export function SignupForm() {
         <button
           className="bg-gradient-to-br relative group/btn from-[#3c3c3c] to-[#1a1a1a] block w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] cursor-pointer"
           type="submit"
+          disabled={status.submitting}
         >
-          הרשמה &larr;
+          {status.submitting ? 'שולח...' : 'הרשמה'} &larr;
           <BottomGradient />
         </button>
 

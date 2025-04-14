@@ -58,6 +58,7 @@ export default function Home() {
         title="איך מתנהג גנטלמן במועדון"
         description="הגנטלמן המודרני מתנהל לפי קוד התנהגות ייחודי. הנה כמה מהעקרונות המנחים אותו:"
       />
+      
       {/* MultiStepLoader with Image - Desktop: Side by Side, Mobile: Stacked */}
       <section className="bg-[#e2dfce] px-4 md:px-8 pb-16">
         <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row-reverse items-center sx:gap-[23rem]">
@@ -85,6 +86,18 @@ export default function Home() {
         <ClubContentTimeline />
       </section>
 
+      {/* Signup Form Section */}
+      <SectionHeader
+        id="signup"
+        title="טעימה ממועדון הג׳נטלמן"
+        description="אני רוצה לתת לך במתנה את 15 המשפטים המנצחים שלי בכל סיטואציה עם נשים!"
+      />
+      <div className="px-4 md:px-8 pb-10 bg-[#e2dfce]">
+        <div className="max-w-5xl mx-auto">
+          <SignupForm />
+        </div>
+      </div>
+
       {/* About Me Section */}
       <SectionHeader
         id="about-me"
@@ -98,18 +111,8 @@ export default function Home() {
           <ImageCarousel images={galleryImages2} />
         </div>
       </section>
-      
-      {/* Signup Form Section */}
-      <SectionHeader
-        id="signup"
-        title="הצטרף למועדון הג'נטלמן"
-        description="מלא את הפרטים שלך כדי להצטרף למועדון ולקבל גישה לתוכן בלעדי"
-      />
-      <div className="px-4 md:px-8 pb-10 bg-[#e2dfce]">
-        <div className="max-w-5xl mx-auto">
-          <SignupForm />
-        </div>
-      </div>
+
+      {/* pricing section */}
       
       {/* FAQ Section */}
       <FaqSection

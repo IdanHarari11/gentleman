@@ -1,23 +1,27 @@
 export const navItems = [
   {
     name: "ראשי",
-    link: "#hero",
+    link: "/#hero",
   },
   {
     name: "המודל",
-    link: "#model",
+    link: "/#model",
   },
   {
     name: "קוד התנהגות",
-    link: "#behavior",
+    link: "/#behavior",
   },
   {
     name: "חזון המועדון",
-    link: "#content",
+    link: "/#content",
   },
   {
     name: "קצת עליי",
-    link: "#about-me",
+    link: "/#about-me",
+  },
+  {
+    name: "תוכניות",
+    link: "/#pricing",
   },
   // {
   //   name: "שאלות",

@@ -221,14 +221,6 @@ export const Header = () => {
               <span className="absolute text-6xl md:text-8xl text-[#242422] opacity-15 font-serif bottom-0 left-2 md:left-4 transform -rotate-12">"</span>
               <p className="text-right mt-2 md:mt-4 text-sm md:text-sm font-light text-[#343432]">— ויקיפדיה</p>
             </div>
-            <p className="pr-2 font-light text-lg">
-            <p className="pr-2 font-medium text-lg">
-              מסיבה שלמה רקדנו צמודים אחד לשני הגוף שלי על הגוף שלה ,בטוח שמפה היא שלי ושום דבר לא יפריד ביננו אבל אז הגיע המשפט שהפך אותי לגמרי...
-              עבר זמן רב מאז 2025 כאן והיום זה  מובן לי יותר מתמיד זה לא על מי שאתה , זה על כמה אתה מבין את המשחק.
-              אתה רואה אני לא מה- 20 אחוז שנולדו עם זה אבל ברגע שלמדתי את הכללים התוצאות לא איחרו לבוא.
-              לאחר שזה עבד לי החלטתי שאני חייב להעביר את זה הלאה אז אם אתה מוכן להפסיק לנחש ולהתחיל לשחק חכם - זאת ההזדמנות שלך.
-            </p>
-            </p>
           </div>
         </div>
       </div>

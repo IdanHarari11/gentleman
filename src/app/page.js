@@ -14,6 +14,7 @@ import { products, loadingStates, galleryImages1, galleryImages2, galleryImages3
 import AboutMe from "@/components/about-me.jsx";
 import Slogan from "@/components/ui/slogan";
 import ContactForm from "@/components/contact-form";
+import CtaButton from '@/components/ui/cta-button';
 
 export default function Home() {
   return (
@@ -44,6 +45,21 @@ export default function Home() {
       <section className="py-10 md:py-14 px-4 md:px-8 bg-[#e2dfce]">
         <div className="max-w-5xl mx-auto">
           <ImageCarousel images={galleryImages1} />
+        </div>
+      </section>
+
+      {/* pricing section */}
+      <SectionHeader
+        id="pricing"
+        title="תוכניות מחיר"
+        description="הצטרף למועדון הג'נטלמן המודרני"
+      />
+      <section className="py-6 md:py-10 px-4 md:px-8 bg-[#e2dfce]">
+        <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
+          <p className="text-lg md:text-xl mb-6">לחץ על הכפתור מטה כדי לראות את כל תוכניות המחיר המלאות</p>
+          <CtaButton onClick={() => window.location.href = "/pricing"}>
+            צפה בתוכניות המחיר
+          </CtaButton>
         </div>
       </section>
       
@@ -113,7 +129,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* pricing section */}
       
       {/* FAQ Section */}
       <FaqSection

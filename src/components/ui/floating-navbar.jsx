@@ -132,9 +132,9 @@ export const FloatingNav = ({
           }}
           className={cn(
             "relative border text-xs sm:text-sm md:text-base font-medium border-[#a19f8c]/60 text-[#3a3935] bg-[#d6d3c3]/40 px-3 sm:px-5 py-1 sm:py-2 rounded-full hover:bg-[#c9c6b7]/60 transition-colors",
-            activeSection === "signup" && "border-[#3a3935] border-2 bg-[#d6d3c3]/60 text-black font-semibold"
+            activeSection === "pricing" && "border-[#3a3935] border-2 bg-[#d6d3c3]/60 text-black font-semibold"
           )}
-          onClick={(e) => handleNavClick(e, "#signup")}
+          onClick={() => window.location.href = "/pricing"}
         >
           <span>הצטרפות</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-[#a19f8c] to-transparent h-px" />

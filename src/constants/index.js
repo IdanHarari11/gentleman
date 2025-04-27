@@ -8,6 +8,10 @@ export const navItems = [
     link: "/#model",
   },
   {
+    name: "תוכניות",
+    link: "/#pricing",
+  },
+  {
     name: "קוד התנהגות",
     link: "/#behavior",
   },
@@ -18,10 +22,6 @@ export const navItems = [
   {
     name: "קצת עליי",
     link: "/#about-me",
-  },
-  {
-    name: "תוכניות",
-    link: "/#pricing",
   },
   // {
   //   name: "שאלות",

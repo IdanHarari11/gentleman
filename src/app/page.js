@@ -13,7 +13,6 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import { products, loadingStates, galleryImages1, galleryImages2, galleryImages3, faqItems, navItems } from "@/constants/index";
 import AboutMe from "@/components/about-me.jsx";
 import Slogan from "@/components/ui/slogan";
-import ContactForm from "@/components/contact-form";
 import CtaButton from '@/components/ui/cta-button';
 
 export default function Home() {
@@ -47,20 +46,11 @@ export default function Home() {
           <ImageCarousel images={galleryImages1} />
         </div>
       </section>
-
-      {/* pricing section */}
-      <SectionHeader
-        id="pricing"
-        title="תוכניות מחיר"
-        description="הצטרף למועדון הג'נטלמן המודרני"
-      />
-      <section className="py-6 md:py-10 px-4 md:px-8 bg-[#e2dfce]">
-        <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
-          <p className="text-lg md:text-xl mb-6">לחץ על הכפתור מטה כדי לראות את כל תוכניות המחיר המלאות</p>
-          <CtaButton onClick={() => window.location.href = "/pricing"}>
-            צפה בתוכניות המחיר
-          </CtaButton>
-        </div>
+      
+      <section className="py-6 md:py-10 px-4 md:px-8 bg-[#e2dfce] flex justify-center">
+        <CtaButton onClick={() => window.location.href = "/pricing"}>
+          הצטרף עכשיו למועדון
+        </CtaButton>
       </section>
       
       {/* Enhanced Compare Section with animations */}
@@ -103,6 +93,12 @@ export default function Home() {
         <ClubContentTimeline />
       </section>
 
+      <section className="py-6 md:py-10 px-4 md:px-8 bg-[#e2dfce] flex justify-center">
+        <CtaButton onClick={() => window.location.href = "/pricing"}>
+          תומר, קח אותי לשלב הבא במשחק!
+        </CtaButton>
+      </section>
+
       {/* Signup Form Section */}
       <SectionHeader
         id="signup"
@@ -143,6 +139,12 @@ export default function Home() {
         // }}
       />
 
+      <section className="py-6 md:py-10 px-4 md:px-8 bg-[#e2dfce] flex justify-center mb-8">
+        <CtaButton onClick={() => window.location.href = "/pricing"}>
+          אני רוצה לשחק כמו פרו, תרשום אותי!
+        </CtaButton>
+      </section>
+
       {/* Slogan */}
       <Slogan />
 
@@ -152,7 +154,6 @@ export default function Home() {
           <ImageCarousel images={galleryImages3} />
         </div>
       </section>
-      <ContactForm />
     </main>
   );
 }

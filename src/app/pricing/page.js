@@ -4,8 +4,23 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { navItems } from "@/constants/index";
 import Link from "next/link";
+import PayPalCheckoutButton from '@/components/PayPalCheckoutButton';
 
 export default function PricingPage() {
+  // Example product/plan data - replace with your actual data source
+  const basicPlan = {
+    name: 'תוכנית בסיסית',
+    price: '1', // Price as a string
+  };
+
+  const premiumPlan = {
+    name: 'תוכנית פרימיום',
+    price: '25.50', // Price as a string
+  };
+
+  // You would likely have more complex logic here to display different plans
+  // and potentially select one before showing the button.
+
   return (
     <main className="bg-[#e2dfce] min-h-screen relative" dir="rtl">
       {/* Add the FloatingNav component */}
@@ -91,6 +106,23 @@ export default function PricingPage() {
               חזרה לדף הבית
             </Link>
           </div>
+
+          {/* Example Section for Basic Plan */}
+          <section style={{ marginBottom: '30px', border: '1px solid #eee', padding: '15px' }}>
+            <h2>{basicPlan.name}</h2>
+            <h2>{basicPlan.price}</h2>
+            <p>תיאור התוכנית הבסיסית...</p>
+            {/* Pass the product data to the button component */}
+            <PayPalCheckoutButton product={basicPlan} />
+          </section>
+
+          {/* Example Section for Premium Plan */}
+          <section style={{ marginBottom: '30px', border: '1px solid #eee', padding: '15px' }}>
+            <h2>{premiumPlan.name}</h2>
+            <p>תיאור תוכנית הפרימיום...</p>
+            {/* Pass the product data to the button component */}
+            <PayPalCheckoutButton product={premiumPlan} />
+          </section>
         </div>
       </section>
     </main>

@@ -4,18 +4,24 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { navItems } from "@/constants/index";
 import Link from "next/link";
+import Image from "next/image";
 import PayPalCheckoutButton from '@/components/PayPalCheckoutButton';
 
 export default function PricingPage() {
   // Example product/plan data - replace with your actual data source
-  const basicPlan = {
-    name: 'תוכנית בסיסית',
-    price: '1', // Price as a string
+  const monthlyPlan = {
+    name: 'תוכנית חודשית',
+    price: '199', // Price as a string
   };
 
-  const premiumPlan = {
-    name: 'תוכנית פרימיום',
-    price: '25.50', // Price as a string
+  const halfYearPlan = {
+    name: 'חצי שנתי',
+    price: '389', // Price as a string
+  };
+
+  const yearlyPlan = {
+    name: 'שנתי',
+    price: '787', // Price as a string
   };
 
   // You would likely have more complex logic here to display different plans
@@ -61,18 +67,42 @@ export default function PricingPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* תוכנית חודשית */}
-            <div className="bg-[#d4d1c0] rounded-xl p-6 shadow-md border border-[#242422]/10">
+            <div className="bg-[#f3f1f2]/70 backdrop-blur-md rounded-xl p-6 shadow-md border border-[#242422]/20 hover:border-[#242422]/30 transition-all duration-300 backdrop-filter flex flex-col h-full">
+              <div className="flex justify-center mb-4">
+                <Image
+                  src="/images/gentleman/monthly.png"
+                  alt="תוכנית חודשית"
+                  width={150}
+                  height={150}
+                  className="rounded-md"
+                />
+              </div>
               <h3 className="text-xl font-bold text-[#242422] mb-4 text-center">תשלום חודשי</h3>
               <p className="text-2xl font-bold text-center mb-4">199₪<span className="text-lg font-normal"> / חודש</span></p>
               <div className="border-t border-[#242422]/20 pt-4 mb-6">
                 <p className="text-center text-[#343432]">תשלום חודשי, בכל פעם</p>
               </div>
+              <div className="flex justify-center mt-auto pt-4">
+                {/* <button className="bg-[#242422] text-[#e2dfce] py-2 px-6 rounded-md hover:bg-[#343432] transition-colors duration-300 font-medium">
+                  רכישה
+                </button> */}
+                <PayPalCheckoutButton product={monthlyPlan} />
+              </div>
             </div>
             
             {/* תוכנית חצי שנתית */}
-            <div className="bg-[#d4d1c0] rounded-xl p-6 shadow-md border border-[#242422]/10 transform md:scale-105 z-10 relative">
+            <div className="bg-[#f3f1f2]/70 backdrop-blur-md rounded-xl p-6 shadow-md border border-[#242422]/10 transform md:scale-105 z-10 relative flex flex-col h-full">
               <div className="absolute top-0 right-0 left-0 -mt-4 flex justify-center">
                 <span className="bg-[#242422] text-[#e2dfce] text-sm font-medium px-4 py-1 rounded-full">המומלץ ביותר</span>
+              </div>
+              <div className="flex justify-center mb-4 mt-2">
+                <Image
+                  src="/images/gentleman/halfYear.png"
+                  alt="תוכנית חצי שנתית"
+                  width={150}
+                  height={150}
+                  className="rounded-md"
+                />
               </div>
               <h3 className="text-xl font-bold text-[#242422] mb-4 text-center">חצי שנתי</h3>
               <p className="text-2xl font-bold text-center mb-4">389₪</p>
@@ -82,10 +112,25 @@ export default function PricingPage() {
                 <p className="text-[#343432] mb-2">✓ חודש אחרון ב-150₪</p>
                 <p className="text-[#343432] text-sm text-center pt-2 font-medium line-through">במקום ב-1234₪ בתשלום חודשי</p>
               </div>
+              <div className="flex justify-center mt-auto pt-4">
+                {/* <button className="bg-[#242422] text-[#e2dfce] py-2 px-6 rounded-md hover:bg-[#343432] transition-colors duration-300 font-medium">
+                  רכישה
+                </button> */}
+                <PayPalCheckoutButton product={halfYearPlan} />
+              </div>
             </div>
             
             {/* תוכנית שנתית */}
-            <div className="bg-[#d4d1c0] rounded-xl p-6 shadow-md border border-[#242422]/10">
+            <div className="bg-[#f3f1f2]/70 backdrop-blur-md rounded-xl p-6 shadow-md border border-[#242422]/10 flex flex-col h-full">
+              <div className="flex justify-center mb-4">
+                <Image
+                  src="/images/gentleman/year.png"
+                  alt="תוכנית שנתית"
+                  width={150}
+                  height={150}
+                  className="rounded-md"
+                />
+              </div>
               <h3 className="text-xl font-bold text-[#242422] mb-4 text-center">שנתי</h3>
               <p className="text-2xl font-bold text-center mb-4">787₪</p>
               <div className="border-t border-[#242422]/20 pt-4 mb-6">
@@ -95,34 +140,14 @@ export default function PricingPage() {
                 <p className="text-[#343432] mb-2">✓ כולל 2 שיחות אימון איתי</p>
                 <p className="text-[#343432] text-sm text-center pt-2 font-medium line-through">במקום ב-2428₪ תשלום חודשי</p>
               </div>
+              <div className="flex justify-center mt-auto pt-4">
+                {/* <button className="bg-[#242422] text-[#e2dfce] py-2 px-6 rounded-md hover:bg-[#343432] transition-colors duration-300 font-medium">
+                  רכישה
+                </button> */}
+                <PayPalCheckoutButton product={yearlyPlan} />
+              </div>
             </div>
           </div>
-          
-          <div className="mt-12 flex justify-center">
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center bg-[#d4d1c0] text-[#242422] rounded-md px-6 py-3 text-lg font-medium transition-colors hover:bg-[#c4c1b0] border border-[#242422]/20"
-            >
-              חזרה לדף הבית
-            </Link>
-          </div>
-
-          {/* Example Section for Basic Plan */}
-          <section style={{ marginBottom: '30px', border: '1px solid #eee', padding: '15px' }}>
-            <h2>{basicPlan.name}</h2>
-            <h2>{basicPlan.price}</h2>
-            <p>תיאור התוכנית הבסיסית...</p>
-            {/* Pass the product data to the button component */}
-            <PayPalCheckoutButton product={basicPlan} />
-          </section>
-
-          {/* Example Section for Premium Plan */}
-          <section style={{ marginBottom: '30px', border: '1px solid #eee', padding: '15px' }}>
-            <h2>{premiumPlan.name}</h2>
-            <p>תיאור תוכנית הפרימיום...</p>
-            {/* Pass the product data to the button component */}
-            <PayPalCheckoutButton product={premiumPlan} />
-          </section>
         </div>
       </section>
     </main>

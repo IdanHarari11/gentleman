@@ -11,7 +11,7 @@ function PayPalCheckoutButton({ product }) {
 
   // Basic validation on component mount/render
   if (!CLIENT_ID) {
-    console.error('שגיאה: חסר NEXT_PUBLIC_PAYPAL_CLIENT_ID בקובץ .env.local');
+    console.error('שגיאה: חסר NEXT_PUBLIC_PAYPAL_CLIENT_ID בקובץ .env');
     // You might want to render a user-friendly error message instead of null
     return <div style={{ color: 'red' }}>שגיאה בהגדרות התשלום. אנא צור קשר עם התמיכה.</div>;
   }

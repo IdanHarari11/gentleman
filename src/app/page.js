@@ -73,7 +73,7 @@ export default function Home() {
           <div className="w-full md:w-1/2 md:mt-0 flex justify-center md:justify-start mt-[20rem] xl:mt-[0rem] lg:mt-[0rem] md:mt-[0rem]">
             <div className="relative w-full max-w-md h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.1)] border border-[#a19f8c]/30">
               <Image 
-                src="/images/Tomer/tomer.jpg" 
+                src="/images/Tomer/tomer1.jpg" 
                 alt="Tomer" 
                 fill
                 className="object-cover"

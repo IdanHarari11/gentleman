@@ -8,10 +8,6 @@ export const navItems = [
     link: "/#model",
   },
   {
-    name: "תוכניות",
-    link: "/#pricing",
-  },
-  {
     name: "קוד התנהגות",
     link: "/#behavior",
   },

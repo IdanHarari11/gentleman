@@ -131,7 +131,7 @@ export const FloatingNav = ({
             WebkitBackdropFilter: "blur(4px)"
           }}
           className={cn(
-            "relative border text-xs sm:text-sm md:text-base font-medium border-[#a19f8c]/60 text-[#3a3935] bg-[#d6d3c3]/40 px-3 sm:px-5 py-1 sm:py-2 rounded-full hover:bg-[#c9c6b7]/60 transition-colors",
+            "cursor-pointer relative border text-xs sm:text-sm md:text-base font-medium border-[#a19f8c]/60 text-[#3a3935] bg-[#d6d3c3]/40 px-3 sm:px-5 py-1 sm:py-2 rounded-full hover:bg-[#c9c6b7]/60 transition-colors",
             activeSection === "pricing" && "border-[#3a3935] border-2 bg-[#d6d3c3]/60 text-black font-semibold"
           )}
           onClick={() => window.location.href = "/pricing"}

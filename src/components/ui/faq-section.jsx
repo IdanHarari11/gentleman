@@ -44,7 +44,7 @@ const FaqSection = React.forwardRef(
                 >
                   <AccordionTrigger 
                     className={cn(
-                      "px-6 py-4 text-right hover:no-underline",
+                      "cursor-help px-6 py-4 text-right hover:no-underline",
                       "data-[state=open]:border-b data-[state=open]:border-[#242422]/10"
                     )}
                   >

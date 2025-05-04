@@ -1,0 +1,15 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "emails",
+    "main"
+  ],
+  "parent": {
+    "emails": "main",
+    "main": null
+  },
+  "order": [
+    "main",
+    "emails"
+  ]
+}
